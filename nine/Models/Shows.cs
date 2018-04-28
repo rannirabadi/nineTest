@@ -25,7 +25,7 @@ namespace nine.Models
         {
             //remove what i don't need
             shows.RemoveAll(s => s.drm == false || s.episodeCount == 0);
-            //load the Response object with the 3 attributes
+            //load the Response object with the 3 attributes (showImage, slug, title) requested from the Show object
             Response response = new Response() { shows = shows.Select(s => new { s.image.showImage, s.slug, s.title }) };
             return JsonConvert.SerializeObject(response);
         }
